@@ -56,9 +56,37 @@ function OnTriggerEnter(other:Collider) {
 }
 
 function Init() {
-	transform.position = Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
+	// determine the starting point and move direction
+	var direction = Random.Range(0, 4);
 	
-	move = Vector3(Random.Range(-2.5f, 2.5f) * 1.5, Random.Range(-3.5f, 3.5f) * 1.5, 0);
+	switch (direction) {
+		
+		// top
+		case 0:
+			transform.position = Vector3(Random.Range(ScreenBorderScript.left + (size / 2), ScreenBorderScript.right - (size / 2)), ScreenBorderScript.top - (size / 2), 0);
+			move = Vector3(Random.Range(-3.5f, 3.5f) * 1.5, Random.Range(-1.0f, -2.5f) * 1.5, 0);
+			break;
+			
+		// bottom
+		case 1:
+			transform.position = Vector3(Random.Range(ScreenBorderScript.left + (size / 2), ScreenBorderScript.right - (size / 2)), ScreenBorderScript.bottom + (size / 2), 0);
+			move = Vector3(Random.Range(-3.5f, 3.5f) * 1.5, Random.Range(1.0f, 2.5f) * 1.5, 0);
+			break;
+		
+		// left
+		case 2:
+			transform.position = Vector3(ScreenBorderScript.left - (size / 2), Random.Range(ScreenBorderScript.top + (size / 2), ScreenBorderScript.bottom - (size / 2)), 0);
+			move = Vector3(Random.Range(1.0f, 2.5f) * 1.5, Random.Range(-3.5f, 3.5f) * 1.5, 0);
+			break;
+
+		// right
+		case 3:
+			transform.position = Vector3(ScreenBorderScript.right + (size / 2), Random.Range(ScreenBorderScript.top + (size / 2), ScreenBorderScript.bottom - (size / 2)), 0);
+			move = Vector3(Random.Range(-2.5f, -1.0f) * 1.5, Random.Range(-3.5f, 3.5f) * 1.5, 0);
+			break;
+	}
+	
+	// generate a rotation
 	rotate = Random.Range(-20.0f, 20.0f);
 	
 	// fix the object's scale
