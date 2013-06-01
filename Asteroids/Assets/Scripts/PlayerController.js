@@ -42,11 +42,11 @@ function Start() {
 
 function Update() {
 	// rotate the player
-	var rotation:Vector3 = Vector3.forward * Input.GetAxis("Horizontal") * rotationSpeed;
+	var rotation:Vector3 = Vector3.back * Input.GetAxis("Horizontal") * rotationSpeed;
 	transform.Rotate(rotation * Time.deltaTime);
 	
 	// move the player
-	var movement:Vector3 = Vector3.forward * Input.GetAxis("Vertical") * moveSpeed;
+	var movement:Vector3 = Vector3.up * Input.GetAxis("Vertical") * moveSpeed;
 	transform.Translate(movement * Time.deltaTime);
 	
 	// fire some lasers!
