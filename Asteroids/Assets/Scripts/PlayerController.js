@@ -115,8 +115,14 @@ function OnTriggerEnter(other:Collider) {
 	if (other.tag == "Asteroid") {
 		health -= 0.08f;
 		
+		if (health < 0) health = 0;
+		
 		other.GetComponent(AsteroidControlScript).Kill();
 		Destroy(other.gameObject);
+	}
+	
+	if (health == 0) {
+		Application.LoadLevel("GameOver");
 	}
 }
 
