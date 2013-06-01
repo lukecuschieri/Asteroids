@@ -20,6 +20,19 @@ function Update() {
 	// move the asteroid through the space
 	transform.Translate(move * Time.deltaTime, Space.World);
 	transform.Rotate(Vector3.back * rotate * Time.deltaTime);
+	
+	// check the player and screen borders
+	if (transform.position.x < ScreenBorderScript.left - (size / 2))
+		transform.position.x = ScreenBorderScript.right + (size / 2);
+	
+	if (transform.position.y < ScreenBorderScript.top - (size / 2))
+		transform.position.y = ScreenBorderScript.bottom + (size / 2);
+	
+	if (transform.position.x > ScreenBorderScript.right + (size / 2))
+		transform.position.x = ScreenBorderScript.left - (size / 2);
+	
+	if (transform.position.y > ScreenBorderScript.bottom + (size / 2))
+		transform.position.y = ScreenBorderScript.top - (size / 2);
 }
 
 function OnTriggerEnter(other:Collider) {

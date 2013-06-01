@@ -49,6 +49,19 @@ function Update() {
 	var movement:Vector3 = Vector3.up * Input.GetAxis("Vertical") * moveSpeed;
 	transform.Translate(movement * Time.deltaTime);
 	
+	// check the player and screen borders
+	if (transform.position.x < ScreenBorderScript.left - 0.5f)
+		transform.position.x = ScreenBorderScript.right + 0.5f;
+	
+	if (transform.position.y < ScreenBorderScript.top - 0.5f)
+		transform.position.y = ScreenBorderScript.bottom + 0.5f;
+	
+	if (transform.position.x > ScreenBorderScript.right + 0.5f)
+		transform.position.x = ScreenBorderScript.left - 0.5f;
+	
+	if (transform.position.y > ScreenBorderScript.bottom + 0.5f)
+		transform.position.y = ScreenBorderScript.top - 0.5f;
+	
 	// fire some lasers!
 	if (Input.GetKeyDown(KeyCode.Space) && rapidShotCount == 0) {
 		FireLaser();

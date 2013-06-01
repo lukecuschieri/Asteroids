@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\MainMenuScript.js" />
      <Compile Include="Assets\Scripts\PlayerController.js" />
      <Compile Include="Assets\Scripts\PowerupScript.js" />
+     <Compile Include="Assets\Scripts\ScreenBorderScript.js" />
      <Compile Include="Assets\Scripts\ShockwaveScript.js" />
      <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
   </ItemGroup>
