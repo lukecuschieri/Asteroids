@@ -29,6 +29,10 @@ function Start() {
 function Update() {
 	var currentTime:float = targetTime - Time.time;
 	
+	if (currentTime <= 0) {
+		Application.LoadLevel("GameOver");
+	}
+	
 	CheckAsteroids();
 }
 
