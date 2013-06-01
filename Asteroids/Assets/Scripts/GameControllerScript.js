@@ -28,6 +28,8 @@ function Start() {
 
 function Update() {
 	var currentTime:float = targetTime - Time.time;
+	
+	CheckAsteroids();
 }
 
 function OnGUI() {
@@ -51,5 +53,34 @@ function GenerateAsteroids() {
 		asteroidsGenerated++;
 		
 		Invoke("GenerateAsteroids", Random.Range(0.65f, 2.0f));
+	}
+}
+
+
+// checks the number of asteroids
+function CheckAsteroids() {
+	if (GameObject.FindGameObjectsWithTag("Asteroid").Length == 0 && asteroidsGenerated >= maximumAsteroids) {
+		level++;
+		asteroidsGenerated = 0;
+		targetTime = Time.time + 60;
+		
+		if (level < 6) {
+			var background:GameObject = GameObject.Find("Background");
+			background.renderer.material = backgroundMaterials[level - 1];
+		} else {
+			Application.LoadLevel("GameOver");
+		}
+		
+		if (level < 5) {
+			maximumSize++;
+			maximumAsteroids = 4 + level;
+			
+			GenerateAsteroids();
+		} else if (level == 5) {
+			var asteroid:Rigidbody = Instantiate(asteroidPrefab, Vector3(0, 0, -20), Quaternion.identity);
+			asteroid.GetComponent(AsteroidControlScript).SetSize(3);
+			asteroidsGenerated = 0;
+			maximumAsteroids = 0;
+		}
 	}
 }

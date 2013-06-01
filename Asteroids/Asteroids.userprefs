@@ -1,14 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AsteroidControlScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameControllerScript.js">
     <Files>
-      <File FileName="Assets\Scripts\AsteroidControlScript.js" Line="90" Column="30" />
+      <File FileName="Assets\Scripts\GameControllerScript.js" Line="36" Column="30" />
+      <File FileName="Assets\Scripts\AsteroidControlScript.js" Line="152" Column="2" />
       <File FileName="Assets\Scripts\ScreenBorderScript.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MainMenuScript.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameControllerScript.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ShockwaveScript.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EndGameScript.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerController.js" Line="64" Column="2" />
+      <File FileName="Assets\Scripts\PlayerController.js" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ClassPad">
